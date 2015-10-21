@@ -8,7 +8,9 @@ highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
 widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
-
+github:
+ user: Niru4
+ repo: slidifydemo
 ---
 
 ## My slidfy Project
@@ -31,6 +33,24 @@ This dataset is obtained from library(datasets), data("DNase")
   
 ---
 ## XY Plot
+library(shiny)
+library(datasets)
+library(dplyr)
+data("DNase")
+shinyUI(pageWithSidebar(
+  headerPanel('ELISA assay data for rat serum'),
+  sidebarPanel(
+    selectInput('xcol', 'X Variable', names(DNase)),
+    selectInput('ycol', 'Y Variable', names(DNase),
+                selected=names(DNase)[[2]]),
+    numericInput('clusters', 'Cluster count', 3,
+                 min = 1, max = 6)
+  ),
+  mainPanel(
+    plotOutput('plot1')
+  )
+))
+
 The X varibale and Y varibale are two widgets to built the XY plot.  The user can select the variables to compare the trend 
 
 ---
