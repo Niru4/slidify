@@ -10,7 +10,7 @@ widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 github.io:
  user: Niru4
- repo: Data-Products
+ repo: slidify
 ---
 
 ## My slidfy Project
